@@ -1,4 +1,4 @@
-# Let's get image
+# Let's get the base image
 FROM node:latest
 # Create app directory
 WORKDIR /usr/src/app
