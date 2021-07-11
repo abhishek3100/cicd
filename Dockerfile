@@ -1,4 +1,4 @@
-# Let's get the base image
+# Let's get the base image of node14
 FROM node:14
 # Create app directory
 WORKDIR /usr/src/app
