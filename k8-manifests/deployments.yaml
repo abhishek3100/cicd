@@ -1,49 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloworld
+  creationTimestamp: null
   labels:
     app: web
+  name: helloworld
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: web
-  replicas: 3
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 0
-      maxSurge: 1
+  strategy: {}
   template:
     metadata:
+      creationTimestamp: null
       labels:
         app: web
-        
     spec:
       containers:
-        - name: helloworld
-          image: 'gcr.io/virtual-anchor-319409/helloworld:latest'
-          imagePullPolicy: Always
-          terminationMessagePath: /var/log/termination
-          resources:
-            requests:
-              memory: 250Mi
-              cpu: 500m
-            limits:
-              memory: 500Mi
-              cpu: 1000m
-          livenessProbe:
-            failureThreshold: 3
-            initialDelaySeconds: 60
-            periodSeconds: 10
-            timeoutSeconds: 60
-            exec:
-              command:
-                - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
-          readinessProbe:
-            failureThreshold: 3
-            initialDelaySeconds: 60
-            successThreshold: 2
-            exec:
-              command:
-                - cat /tmp/healthy
+      - image: gcr.io/virtual-anchor-319409/helloworld:latest
+        name: helloworld
+        resources: {}
+status: {}

@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta17
+kind: Config
+metadata:
+  name: cicd
+build:
+  artifacts:
+  - image: gcr.io/virtual-anchor-319409/helloworld
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - k8-manifests/deployments.yaml
+    - k8-manifests/service.yaml
