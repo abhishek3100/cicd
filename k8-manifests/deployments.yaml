@@ -18,7 +18,7 @@ spec:
         app: web
     spec:
       containers:
-      - image: gcr.io/virtual-anchor-319409/helloworld:latest
+      - image: gcr.io/virtual-anchor-319409/spinnaker-demo:latest
         name: helloworld
         resources: {}
 status: {}
