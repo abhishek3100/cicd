@@ -22,11 +22,15 @@ pipeline {
 
         stage ('Tagging & Pushing the image'){
             steps{
+
+                withCredentials([usernameColonPassword(credentialsId: 'gcr:myfirstproject', variable: '')]) {
                 sh '''
                     
                     docker tag helloworld:$BUILD_NUMBER gcr.io/$PROJECT_ID/helloworld:$BUILD_NUMBER
                     docker push gcr.io/$PROJECT_ID/helloworld:$BUILD_NUMBER
                 '''
+                }
+                
             }
         }
 
