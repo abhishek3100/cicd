@@ -1,0 +1,6 @@
+On VMs
+-----------------
+* installed git, docker, kubectl
+config docker as root
+Google Container Registry Auth
+CloudBees Docker Build and Publish
