@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         PROJECT_ID = 'virtual-anchor-319409'
-        GCP_SA = credentials('myfirstproject')
+        GCP_SA = 'myfirstproject'
     }
     stages {
 
@@ -23,7 +23,7 @@ pipeline {
         stage ('Tagging & Pushing the image'){
             steps{
                 sh '''
-                    gcloud auth activate-service-account --key-file=$GCP_SA
+                    
                     docker tag helloworld:$BUILD_NUMBER gcr.io/$PROJECT_ID/helloworld:$BUILD_NUMBER
                     docker push gcr.io/$PROJECT_ID/helloworld:$BUILD_NUMBER
                 '''
