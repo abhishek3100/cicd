@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         PROJECT_ID = 'virtual-anchor-319409'
-        GCP_SA = credentials('virtual-anchor-319409')
+        GCP_SA = 'virtual-anchor-319409'
     }
     stages {
 
