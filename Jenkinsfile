@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+        PROJECT_ID = 'virtual-anchor-319409'
+    }
     stages {
 
         stage('Example') {
@@ -11,14 +13,27 @@ pipeline {
 
         stage ('Build') {
             steps {
-                sh 'docker version'
+                sh '''
+                    docker version 
+                    docker build -t helloworld:$BUILD_NUMBER .
+                '''
+            }            
+        }
+
+        stage ('Push the container'){
+            steps{
+                sh '''
+
+                    docker tag helloworld:$BUILD_NUMBER gcr.io/$PROJECT_ID/helloworld:$BUILD_NUMBER
+                    docker push gcr.io/$PROJECT_ID/helloworld:$BUILD_NUMBER
+                '''
             }
-            
         }
 
         stage ('Test') {
             steps {
                 echo 'Testing .........'
+                sh 'kubectl'
             }
         }
 
