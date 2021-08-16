@@ -22,7 +22,7 @@ pipeline {
         stage ('Tagging & Pushing the image'){
             steps{
                 sh '''
-                    gcloud auth activate-service-account --key-file='$virtual-anchor-319409'
+                    gcloud auth activate-service-account --key-file=virtual-anchor-319409
                     docker tag helloworld:$BUILD_NUMBER gcr.io/$PROJECT_ID/helloworld:$BUILD_NUMBER
                     docker push gcr.io/$PROJECT_ID/helloworld:$BUILD_NUMBER
                 '''
