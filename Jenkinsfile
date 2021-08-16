@@ -22,15 +22,11 @@ pipeline {
 
         stage ('Tagging & Pushing the image'){
             steps{
-
-                withCredentials([usernameColonPassword(credentialsId: 'gcr:myfirstproject', variable: '')]) {
                 sh '''
-                    
+                    gcloud auth activate-service-account --key-file=$GCP_SA
                     docker tag helloworld:$BUILD_NUMBER gcr.io/$PROJECT_ID/helloworld:$BUILD_NUMBER
                     docker push gcr.io/$PROJECT_ID/helloworld:$BUILD_NUMBER
                 '''
-                }
-                
             }
         }
 
