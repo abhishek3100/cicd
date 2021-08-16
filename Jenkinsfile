@@ -8,10 +8,10 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
-        
+
         stage ('Build') {
             steps {
-                echo 'Building .........'
+                sh 'docker version'
             }
             
         }
