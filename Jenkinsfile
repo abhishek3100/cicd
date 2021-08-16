@@ -20,7 +20,7 @@ pipeline {
             }            
         }
 
-        stage ('Push the container'){
+        stage ('Tgging & Pushing the image'){
             steps{
                 sh '''
 
