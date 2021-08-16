@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         PROJECT_ID = 'virtual-anchor-319409'
-        CREDENTIALS_ID = 'My First Project'
+        CREDENTIALS_ID = 'myfirstproject'
     }
     stages {
 
