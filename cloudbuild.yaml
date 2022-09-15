@@ -5,7 +5,7 @@ steps:
   id: Building the container image
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/${_SERVICE_NAME}']
+  args: ['push', 'gcr.io/$PROJECT_ID/${_SERVICE_NAME}:${SHORT_SHA}']
   id: Pushing the image to registry
 # Deploy container image to Cloud Run
 - name: 'gcr.io/cloud-builders/gcloud'
