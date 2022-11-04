@@ -6,7 +6,7 @@ on:
 
 env:
   PROJECT_ID: raider300 # TODO: update Google Cloud project id
-  SERVICE: myrubyapp # TODO: update Cloud Run service name
+  SERVICE: myawesomeapp # TODO: update Cloud Run service name
   REGION: us-east1 # TODO: update Cloud Run service region
   IMAGE_NAME: gcr.io/raider300/github-test:${{ github.sha }}
 
